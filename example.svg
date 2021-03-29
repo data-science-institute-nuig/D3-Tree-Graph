@@ -1,0 +1,21 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 100 100" width="100" height="100">
+    <defs>
+        <clipPath id="_clipPath_jwqAbZfGm2k1TDy7sEg3eZzqpvdeycTX">
+            <rect width="100" height="100"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#_clipPath_jwqAbZfGm2k1TDy7sEg3eZzqpvdeycTX)">
+        <path d=" M 0 50 C 0 22.404 22.404 0 50 0 C 77.596 0 100 22.404 100 50 C 100 77.596 77.596 100 50 100 C 22.404 100 0 77.596 0 50 Z " fill="rgb(0,0,0)"/>
+        <rect x="18" y="63" width="13" height="15" transform="matrix(1,0,0,1,0,0)" fill="rgb(66,165,245)"/>
+        <rect x="35.5" y="58" width="13" height="20" transform="matrix(1,0,0,1,0,0)" fill="rgb(66,165,245)"/>
+        <rect x="53" y="53" width="13" height="25" transform="matrix(1,0,0,1,0,0)" fill="rgb(66,165,245)"/>
+        <rect x="70.5" y="48" width="13" height="30" transform="matrix(1,0,0,1,0,0)" fill="rgb(66,165,245)"/>
+        <g style="isolation:isolate" id="Layer 0">
+            <g id="arrow">
+                <path d=" M 105.854 12.878 L 105.854 12.878 L 105.854 12.878 L 105.854 12.878 Z " fill="rgb(66,165,245)"/>
+                <path d=" M 79.861 35.389 L 75.394 36.14 L 72.705 27.29 C 64.91 41.682 54.202 48.54 44.342 51.409 C 33.905 54.463 24.608 53.144 20.669 52.327 C 19.429 52.068 18.714 51.856 18.648 51.836 L 19.906 48.108 L 19.907 48.108 C 19.907 48.108 19.912 48.111 19.973 48.128 C 20.154 48.178 20.673 48.317 21.47 48.483 C 24.872 49.195 33.29 50.386 42.586 47.654 C 51.374 45.059 61.11 39.041 68.528 25.342 L 58.51 26.95 L 57.365 23.056 L 75.243 20.188 L 79.861 35.389 Z " fill="rgb(66,165,245)"/>
+            </g>
+        </g>
+    </g>
+</svg>
