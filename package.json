@@ -1,0 +1,11 @@
+{
+  "name": "d3-tree-graph",
+  "version": "1.0.0",
+  "description": "D3 Tree Graph code from the DSI Developers Forum.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
