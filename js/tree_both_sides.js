@@ -3,32 +3,40 @@ const treeData = {
   children: [
     {
       name: "Level 2: A",
+      position: "right", // Indicates this should be on the right
       children: [
-        {
-          name: "Son of A",
-        },
-        {
-          name: "Daughter of A",
-        },
+        { name: "Son of A", position: "right" },
+        { name: "Daughter of A", position: "right" },
       ],
     },
     {
       name: "Level 2: B",
+      position: "left", // Indicates this should be on the left
+      children: [
+        { name: "Son of B", position: "left" },
+        { name: "Daughter of B", position: "left" },
+      ],
     },
   ],
 };
+
 
 const margin = { top: 20, right: 90, bottom: 20, left: 90 };
 const width = 960 - margin.left - margin.right;
 const height = 500 - margin.top - margin.bottom;
 
-let svg = d3
+// Expand the width to accommodate nodes on both sides
+const extendedWidth = width * 2; // Doubled width for left and right space
+
+var svg = d3
   .select(".container")
   .append("svg")
-  .attr("width", width + margin.right + margin.left)
+  .attr("width", extendedWidth + margin.right + margin.left) // Increased width
   .attr("height", height + margin.top + margin.bottom)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .attr("transform", "translate(" + (extendedWidth / 2) + "," + margin.top + ")");
+
+
 
 let i = 0;
 const duration = 750;
@@ -45,9 +53,9 @@ console.log("root ", root);
 update(root);
 
 function update(source) {
-  const treeData = treemap(root);
+  var treeData = treemap(root);
 
-  // nodes
+  // Compute node positions
   var nodes = treeData.descendants();
 
   nodes.forEach(function (d) {
@@ -118,7 +126,7 @@ function update(source) {
   nodeExit.select("circle").attr("r", 0);
   nodeExit.select("text").style("fill-opacity", 0);
 
-  // links
+  // Modify diagonal function to handle left and right links properly
   function diagonal(s, d) {
     path = `M ${s.y} ${s.x}
       C ${(s.y + d.y) / 2} ${s.x}
@@ -126,19 +134,22 @@ function update(source) {
         ${d.y} ${d.x}`;
     return path;
   }
-  const links = treeData.descendants().slice(1);
-  const link = svg.selectAll("path.link").data(links, function (d) {
+
+  var links = treeData.descendants().slice(1);
+  var link = svg.selectAll("path.link").data(links, function (d) {
     return d.id;
   });
-  const linkEnter = link
+
+  var linkEnter = link
     .enter()
     .insert("path", "g")
     .attr("class", "link")
     .attr("d", function (d) {
-      let o = { x: source.x0, y: source.y };
+      var o = { x: source.x0, y: source.y };
       return diagonal(o, o);
     });
-  const linkUpdate = linkEnter.merge(link);
+
+  var linkUpdate = linkEnter.merge(link);
   linkUpdate
     .transition()
     .duration(duration)
@@ -146,12 +157,12 @@ function update(source) {
       return diagonal(d, d.parent);
     });
 
-  const linkExit = link
+  var linkExit = link
     .exit()
     .transition()
     .duration(duration)
     .attr("d", function (d) {
-      let o = { x: source.x0, y: source.y0 };
+      var o = { x: source.x0, y: source.y0 };
       return diagonal(o, o);
     })
     .remove();
